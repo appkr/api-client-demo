@@ -1,0 +1,95 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+Note: any .css or .scss files included in the 'styles' directory
+will be correctly compiled during `gulp serve` and `gulp`
+ */
+
+@import "../bower_components/material-design-lite/src/material-design-lite";
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a img{
+  border: 0px;
+}
+
+::-moz-selection {
+  background-color: #fff7a8;
+  color: #444;
+}
+
+::selection {
+  background-color: #fff7a8;
+  color: #444;
+}
+
+.landing {
+  background: url('../images/459033.jpg') center / cover;
+
+  .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+    padding-right: 0;
+  }
+
+  .mdl-layout__header,
+  .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if your background is light. */
+    color: white;
+  }
+
+  .my-card {
+    width: 98%;
+    height: auto;
+    margin: 1rem auto;
+
+    &> .mdl-card__menu {
+      color: #fff;
+    }
+  }
+}
+
+.avatar{
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  float: left;
+  margin: 0 2rem 2rem 0;
+}
+
+.composed-by {
+  font-style: italic;
+  color: #888;
+}
+
+#icon-forum__new {
+  z-index: 3;
+  position: fixed;
+  bottom: 3rem;
+  right: 4rem;
+}
+
+@media screen and (max-width: 1024px) {
+  // Todo temporary work-around mdl bug
+  .landing .my-card:first-of-type {
+    margin-top: calc(128px + 1rem);
+  }
+}
+
+

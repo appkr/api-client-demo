@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "api-client-demo",
+  "launch_path": "/index.html",
+  "description": "An example API client",
+  "icons": {},
+  "developer": {
+    "name": "Appkr",
+    "url": "juwonkim@me.com"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "api-client-demo",
+      "description": "An example API client"
+    }
+  }
+}

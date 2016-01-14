@@ -19,7 +19,7 @@ const reload = browserSync.reload;
 
 // Optimize images
 gulp.task('images', () =>
-  gulp.src('app/images/**/*')
+  gulp.src('app/images/**/*.*')
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
@@ -32,8 +32,8 @@ gulp.task('images', () =>
 gulp.task('copy', () =>
   gulp.src([
     'app/*',
-    '!app/*.html',
-    'node_modules/apache-server-configs/dist/.htaccess'
+    '!app/bower_components/**/*',
+    '!app/*.html'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
@@ -119,7 +119,7 @@ gulp.task('scripts', () =>
 // Scan your HTML for assets & optimize them
 gulp.task('html', () => {
   return gulp.src('app/**/*.html')
-    .pipe($.useref({searchPath: '{app}'}))
+    .pipe($.useref({searchPath: '{app,.tmp}'}))
     // Remove any unused CSS
     .pipe($.if('*.css', $.uncss({
       html: [
@@ -141,7 +141,7 @@ gulp.task('html', () => {
 });
 
 // Clean output directory
-gulp.task('clean', cb => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
+gulp.task('clean', cb => del(['.tmp', 'dist'], {dot: true}));
 
 // Watch files for changes & reload
 gulp.task('serve', ['scripts', 'styles'], () => {

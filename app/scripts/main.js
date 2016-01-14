@@ -1,11 +1,16 @@
 (function(Vue, moment) {
   'use strict';
 
-  /* My scripts */
+  Vue.config.debug = true;
+
   var base = 'http://api.myproject.dev:8000';
 
   var vm = new Vue({
     el: '#demo',
+
+    data: {
+      articles: {}
+    },
 
     ready: function() {
       var resource = this.$resource(base + '/v1/articles');
